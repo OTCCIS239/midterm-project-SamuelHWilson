@@ -4,15 +4,13 @@ Vue.component('page', {
 new Vue({
     el: '#app',
     data: {
-        clipped: true,
-        drawer: true,
-        fixed: false,
+        drawer: false,
         items: [
-            { icon: 'bubble_chart', title: 'Inspire' }
+            { icon: 'shopping_cart', title: 'Orders', href: "#" },
+            { icon: 'store', title: 'Products', href: "#" }
         ],
-        miniVariant: false,
         right: true,
         rightDrawer: false,
-        title: 'Vuetify.js'
+        title: 'Name Here'
     }
 })

@@ -9,6 +9,7 @@ require_once('./includes/db.php');
 
 // Here you might connect to the database and show off some of your newest guitars.
 
+
 ?>
 
 <!DOCTYPE html>
@@ -28,29 +29,24 @@ require_once('./includes/db.php');
 <body>
     <div id="app">
         <v-app>
-            <v-navigation-drawer fixed :mini-variant="miniVariant" :clipped="clipped" v-model="drawer" app>
+            <v-navigation-drawer clipped v-model="drawer" app>
                 <v-list>
                     <v-list-tile :value="true" v-for="(item, i) in items" :key="item.title">
                         <v-list-tile-action>
                             <v-icon light v-html="item.icon"></v-icon>
                         </v-list-tile-action>
-                        <v-list-tile-content>
-                            <v-list-tile-title v-text="item.title"></v-list-tile-title>
-                        </v-list-tile-content>
+                        <a class="list__tile list__tile-link" :href="item.href">
+                            <v-list-tile-content>
+                                <v-list-tile-title v-text="item.title"></v-list-tile-title>
+                            </v-list-tile-content>
+                        </a>
                     </v-list-tile>
                 </v-list>
             </v-navigation-drawer>
-            <v-toolbar fixed app :clipped-left="clipped">
+            <v-toolbar fixed app clipped-left>
                 <v-toolbar-side-icon @click.native.stop="drawer = !drawer"></v-toolbar-side-icon>
-                <v-btn icon @click.stop="miniVariant = !miniVariant">
-                    <v-icon v-html="miniVariant ? 'chevron_right' : 'chevron_left'"></v-icon>
-                </v-btn>
-                <v-btn icon @click.stop="clipped = !clipped">
-                    <v-icon>web</v-icon>
-                </v-btn>
-                <v-btn icon @click.native.stop="fixed = !fixed">
-                    <v-icon>remove</v-icon>
-                </v-btn>
+                <!-- <v-icon v-html="miniVariant ? 'chevron_right' : 'chevron_left'"></v-icon>
+                     Note to self. Good way to switch icons. -->
                 <v-toolbar-title v-text="title"></v-toolbar-title>
                 <v-spacer></v-spacer>
                 <v-btn icon @click.native.stop="rightDrawer = !rightDrawer">
