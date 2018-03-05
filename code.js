@@ -9,8 +9,6 @@ new Vue({
             { icon: 'shopping_cart', title: 'Orders', href: "#" },
             { icon: 'store', title: 'Products', href: "#" }
         ],
-        right: true,
-        rightDrawer: false,
         title: 'Name Here'
     }
 })
