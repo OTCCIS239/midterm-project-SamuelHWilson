@@ -25,7 +25,7 @@ require_once('./includes/db.php');
 <body>
 <div id="app">
     <v-app>
-        <v-navigation-drawer clipped v-model="drawer" app>
+        <v-navigation-drawer clipped app>
             <v-list>
                 <v-list-tile :value="true" v-for="(item, i) in items" :key="item.title">
                     <v-list-tile-action>
@@ -40,7 +40,7 @@ require_once('./includes/db.php');
             </v-list>
         </v-navigation-drawer>
         <v-toolbar fixed app clipped-left>
-            <v-toolbar-side-icon @click.native.stop="drawer = !drawer"></v-toolbar-side-icon>
+            <!-- <v-toolbar-side-icon @click.native.stop="drawer = !drawer"></v-toolbar-side-icon> -->
             <!-- <v-icon v-html="miniVariant ? 'chevron_right' : 'chevron_left'"></v-icon>
                     Note to self. Good way to switch icons. -->
             <v-toolbar-title v-text="title"></v-toolbar-title>
