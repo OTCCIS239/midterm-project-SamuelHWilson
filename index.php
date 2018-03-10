@@ -36,7 +36,7 @@ $orders = GetMany($orderQuery, $conn);
         </tbody>   
             <?php foreach($orders as $order): ?>
             <tr onclick="window.location='order-details.php/?order-id=<?=$order["orderID"]?>';">
-                <th><?=$order["orderID"]?></th>
+                <td><?=$order["orderID"]?></td>
                 <td><?=$order["firstName"]." ".$order["lastName"]?></th>
                 <td><?=$order["emailAddress"]?></th>
                 <td><?=$order["orderDate"]?></th>

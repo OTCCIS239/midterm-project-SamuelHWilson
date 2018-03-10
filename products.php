@@ -2,7 +2,7 @@
 
 require_once("includes/db.php");
 
-$productsQuery = "SELECT products.productID, products.listPrice, categories.categoryName 
+$productsQuery = "SELECT products.productID, products.productName, products.listPrice, categories.categoryName 
     FROM products
     JOIN categories ON products.categoryID = categories.categoryID
     ORDER BY categories.categoryName;";
@@ -18,15 +18,17 @@ $products = GetMany($productsQuery, $conn);
     <table class="table table-md table-hover table-striped">
         <thead>
             <tr>
-                <th>Category</th>
+                <th>Name</th>
                 <th>Price</th>
+                <th>Category</th>
             </tr>
         </thead>
         </tbody>   
             <?php foreach($products as $product): ?>
             <tr onclick="window.location='product-details.php/?product-id=<?=$product["productID"]?>';">
-                <th><?=$product["categoryName"]?></th>
+                <td><?=$product["productName"]?>
                 <td><?="$".number_format($product["listPrice"],2)?></th>
+                <td><?=$product["categoryName"]?></td>
             </tr>
             <?php endforeach; ?>
         </tbody>

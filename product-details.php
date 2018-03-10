@@ -18,8 +18,10 @@ $product = GetOne($productQuery, $conn, [
 
 <div class="col-lg-6">
     <h1 class="display-4"><?=$product["productName"]?></h1>
-    <p><?=htmlspecialchars($product["description"])?></p>
-    <a class="btn btn-outline-primary" href="/products.php">Go Back</a>
+
+    <p class="mt-4"><?=$product["description"]?></p>
+
+    <a class="btn btn-outline-primary mt-3" href="/products.php">Go Back</a>
 </div>
 
 <?php include("partials/footer.php"); ?>

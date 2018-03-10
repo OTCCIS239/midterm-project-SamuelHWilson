@@ -47,7 +47,7 @@ $total += ($generalInfo["taxAmount"] + $generalInfo["shipAmount"])
                 <td><?=$generalInfo["cardNumber"]?></td>
             </tr>
             <tr>
-                <th>Address</th>
+                <th>Billing Address</th>
                 <td><?=$address?></td>
             </tr>
             <tr>
@@ -63,11 +63,12 @@ $total += ($generalInfo["taxAmount"] + $generalInfo["shipAmount"])
                 <td><?="$".number_format($generalInfo["shipAmount"], 2)?></td>
             </tr>
             <tr>
-                <th>Tax</th>
+                <th>Total</th>
                 <td><?="$".number_format($total, 2)?></td>
             </tr>
         </tbody>
     </table>
+    <a class="btn btn-outline-primary" href="/index.php">Go Back</a>
 </div>
 <div class="col-lg-5">
     <h1 class="display-4">Ordered Items</h1>
