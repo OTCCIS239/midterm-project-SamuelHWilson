@@ -6,7 +6,7 @@ $orderID = filter_input(INPUT_GET, "order-id");
 
 $orderQuery = "SELECT * FROM orders
 	INNER JOIN customers ON orders.customerID = customers.customerID
-	INNER JOIN orderitems ON orders.orderID = orderitems.orderID
+	INNER JOIN orderItems ON orders.orderID = orderitems.orderID
 	INNER JOIN products ON orderitems.productID = products.productID
 	INNER JOIN addresses ON customers.billingAddressID = addresses.addressID
 	WHERE orders.orderID = :orderID;";
