@@ -15,6 +15,8 @@
 // PHP Documentation for the MySQL PDO DSN:
 // http://php.net/manual/en/ref.pdo-mysql.connection.php
 
+require_once('includes/init.php');
+
 $host = getenv("DB_HOST");
 $port = getenv("DB_PORT");
 $dbname = getenv("DB_DATABASE");
@@ -26,7 +28,7 @@ $conn =  new PDO($dsn, $user, $pswd);
 function GetMany($query, $conn, $toBind = []) {
     $statement = $conn->prepare($query);
     foreach($toBind as $bString => $bValue) {
-        $statement->bindValue($bString, $bValue);        
+        $statement->bindValue($bString, $bValue);   
     }
     $statement->execute();
     $toReturn = $statement->fetchAll();
