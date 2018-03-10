@@ -13,7 +13,6 @@ $orderQuery = "SELECT * FROM orders
 $orderParts = GetMany($orderQuery, $conn, [
     ":orderID" => $orderID
 ]);
-var_dump($orderParts);
 $generalInfo = $orderParts[0];
 
 $address = $generalInfo["line1"]." ".$generalInfo["line2"].", ".$generalInfo["city"]." ".$generalInfo["state"]." ".$generalInfo["zipCode"];
