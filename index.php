@@ -1,5 +1,7 @@
 <?php
 
+use Carbon\Carbon;
+
 require_once("includes/db.php");
 
 $filterShipped = filter_input(INPUT_GET, "shipped");
@@ -15,7 +17,6 @@ $orderQuery = "SELECT orders.orderID, customers.firstName, customers.lastName, c
     ".$whereClause."
     ORDER BY orders.orderID;";
 $orders = GetMany($orderQuery, $conn);
-
 ?>
 
 <?php include("partials/header.php"); ?> 
@@ -39,7 +40,7 @@ $orders = GetMany($orderQuery, $conn);
                 <td><?=$order["orderID"]?></td>
                 <td><?=$order["firstName"]." ".$order["lastName"]?></th>
                 <td><?=$order["emailAddress"]?></th>
-                <td><?=$order["orderDate"]?></th>
+                <td><?= Carbon::parse($order["orderDate"])->format('M jS \'y') ?></th>
                 <td>
                     <?php if($order["shipDate"] != NULL) echo '<i class="fa fa-cube fa-lg" style="color:#4b2f06"></i>';?>
                 </td>
